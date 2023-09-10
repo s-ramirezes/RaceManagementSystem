@@ -3,8 +3,8 @@
 ## RMS
 
 ## Team Members
-Christian Leonard
-Blake Joye
+Christian Leonard,
+Blake Joye,
 Sergio Ramirez
 
 ## Description
