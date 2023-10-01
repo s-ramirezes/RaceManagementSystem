@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+    <nav class="navbar navbar-expand-sm bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
           <a
             class="navbar-brand"
@@ -25,15 +25,15 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+                <a class="nav-link" aria-current="page" href="Home.html">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Manager
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="Budget.html">Budget</a></li>
-                  <li><a class="dropdown-item" href="personnelManagement.html">Personnel Management</a></li>
+                  <li><a class="dropdown-item active" href="personnelManagement.html">Personnel Management</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -58,7 +58,68 @@
           </div>
         </div>
       </nav>
-
+      <div class="text-center">
+        <H1 style="color: forestgreen;">Personnel Management</H1>
+      </div>
+      <div class="container">
+      <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <th scope="row">1</th>
+              <th>Sergio Ramirez</th>
+              <th>2345672234</th>
+              <th>Driver</th>
+          </tr>
+          <tr>
+              <th scope="row">2</th>
+              <th>Colin Chapman</th>
+              <th>2445568978</th>
+              <th>Manager</th>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <th>John Smith</th>
+            <th>1234567890</th>
+            <th>Engineer</th>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <th>Sarah Johnson</th>
+            <th>9876543210</th>
+            <th>Driver</th>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <th>Michael Davis</th>
+            <th>5678901234</th>
+            <th>Engineer</th>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <th>Lisa Williams</th>
+            <th>3456789012</th>
+            <th>Driver</th>
+        </tr>
+        <tr>
+            <th scope="row">7</th>
+            <th>David Wilson</th>
+            <th>8765432109</th>
+            <th>Engineer</th>
+        </tr>
+        
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-outline-secondary">Edit</button>
+      <button type="button" class="btn btn-outline-primary">Save</button>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
