@@ -4,7 +4,6 @@
     <title>Budget</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
@@ -58,7 +57,75 @@
       <div class="text-center">
         <H1 style="color: forestgreen;">Seasonal Budget</H1>
       </div>
-   
+      
+      <div class="container">
+        <button type="button" class="btn btn-outline-success">Add Table</button>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col"># of Units</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Running Shoes</th>
+                    <td>9/12/22</td>
+                    <td>100</td>
+                    <td>10</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <th scope="row">Race Bibs</th>
+                    <td>9/15/22</td>
+                    <td>50</td>
+                    <td>100</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <th scope="row">Water Bottles</th>
+                    <td>9/18/22</td>
+                    <td>2</td>
+                    <td>500</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <th scope="row">Energy Gels</th>
+                    <td>9/18/22</td>
+                    <td>1.5</td>
+                    <td>200</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <th scope="row">Medals</th>
+                    <td>9/20/22</td>
+                    <td>3</td>
+                    <td>50</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <th scope="row">Race T-Shirts</th>
+                    <td>9/22/22</td>
+                    <td>8</td>
+                    <td>300</td>
+                    <td>2400</td>
+                </tr>
+                <tr>
+                    <th scope="row">Finish Line Banner</th>
+                    <td>9/22/22</td>
+                    <td>150</td>
+                    <td>1</td>
+                    <td>150</td>
+                </tr>
+          
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-outline-secondary">Edit</button>
+        <button type="button" class="btn btn-outline-primary">Save</button>
+      </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
