@@ -7,3 +7,12 @@
     background: rgb(202, 60, 60);
     /* this is a maroon */
 }
+.small-search{
+    width: 100px;
+}
+.div-box {
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+  }
