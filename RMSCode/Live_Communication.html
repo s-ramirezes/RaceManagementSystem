@@ -1,10 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
-    <title>Driver Stats</title>
+    <title>Live Communication</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -47,35 +46,27 @@
                             Driver
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item active" href="Stats.html">Stats</a></li>
-                            <li><a class="dropdown-item" href="driverFeedback.html">Feedback</a></li>
+                            <li><a class="dropdown-item" href="Stats.html">Stats</a></li>
+                            <li><a class="dropdown-item active" href="driverFeedback.html">Feedback</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <h1 class="text-center" style="color: forestgreen;">Driver Stats</h1>
-    <div class="center-div">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Performance Stats</h3>
-                <ul>
-                    <li>Total Races: 20</li>
-                    <li>Wins: 10</li>
-                    <li>Top 3 Finishes: 15</li>
-                    <li>Pole Positions: 5</li>
-                </ul>
+
+    <div class="container mt-4">
+        <h1 class="text-center"  style="color: red;">Live Communication</h1>
+        <form>
+			Driver Feedback:
+			
+			Example Feeback
+            <div class="mb-3">
+                <label for="feedbackText" class="form-label">Respond to Driver</label>
+                <textarea class="form-control" id="feedbackText" rows="4"></textarea>
             </div>
-            <div class="col-md-6">
-                <h3>Track Records</h3>
-                <ul>
-                    <li>Fastest Lap Time: 1:30.45</li>
-                    <li>Top Speed: 200 mph</li>
-                    <li>Favorite Track: Circuit XYZ</li>
-                </ul>
-            </div>
-        </div>
+            <button type="submit" class="btn btn-primary">Submit Response</button>
+        </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

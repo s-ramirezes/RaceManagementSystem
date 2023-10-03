@@ -1,10 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
-    <title>Driver Stats</title>
+    <title>Race Strategy</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -47,37 +46,52 @@
                             Driver
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item active" href="Stats.html">Stats</a></li>
-                            <li><a class="dropdown-item" href="driverFeedback.html">Feedback</a></li>
+                            <li><a class="dropdown-item" href="Stats.html">Stats</a></li>
+                            <li><a class="dropdown-item active" href="driverFeedback.html">Feedback</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <h1 class="text-center" style="color: forestgreen;">Driver Stats</h1>
-    <div class="center-div">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Performance Stats</h3>
-                <ul>
-                    <li>Total Races: 20</li>
-                    <li>Wins: 10</li>
-                    <li>Top 3 Finishes: 15</li>
-                    <li>Pole Positions: 5</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h3>Track Records</h3>
-                <ul>
-                    <li>Fastest Lap Time: 1:30.45</li>
-                    <li>Top Speed: 200 mph</li>
-                    <li>Favorite Track: Circuit XYZ</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+	
+<div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Track</label>
+  <select class="form-select" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">Track 1</option>
+    <option value="2">Track 2</option>
+    <option value="3">Track 3</option>
+  </select>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Driver</label>
+  <select class="form-select" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">First Driver</option>
+    <option value="2">Second Driver</option>
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">Laps</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+
+<div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Number of Tire Compounds</label>
+  <select class="form-select" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+	<option value="2">Three</option>
+  </select>
+</div>
+<p class="fs-1">Optimal Strategy:</p>
+<p class="fs-1">-</p>
+<p class="fs-2">Alternate Strategy:</p>
+<p class="fs-1">-</p>
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
