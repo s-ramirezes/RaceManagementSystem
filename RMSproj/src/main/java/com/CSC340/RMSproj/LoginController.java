@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
-    @GetMapping(value = {"", "/dashboard", "/home"})
+    @GetMapping(value = {"",  "/home"})
     public String dashboard(Model model){
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         model.addAttribute("currentUser", name);
