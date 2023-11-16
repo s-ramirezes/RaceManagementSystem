@@ -20,7 +20,8 @@ public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String datePurchased;
     private String itemName;
     private String description;
-    private double price;
+    private Double price;
 }

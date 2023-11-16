@@ -17,13 +17,18 @@
     <h3 class="mb-4 text-center">Update Item</h3>
     <div class="card">
         <div class="card-body">
-            <form action="#" th:action="@{/budget/update}" th:object="${item}" method="post" class="needs-validation"
-                  novalidate>
+            <form action="#" th:action="@{/budget/update}" th:object="${item}" method="post" class="needs-validation" novalidate>
                 <input type="hidden" th:field="*{id}"/>
                 <div class="form-group">
+                    <label for="datePurchased">Date Purchased:</label>
+                    <input type="date" class="form-control" id="datePurchased" th:field="*{datePurchased}" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid date.
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="itemName">Item Name:</label>
-                    <input type="text" class="form-control" id="itemName" th:field="*{itemName}" required
-                           value="${budget.itemName}">
+                    <input type="text" class="form-control" id="itemName" th:field="*{itemName}" required>
                     <div class="invalid-feedback">
                         Please provide a valid item name.
                     </div>
@@ -31,8 +36,7 @@
 
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <input type="text" class="form-control" id="description" th:field="*{description}" required
-                           value="${budget.description}">
+                    <input type="text" class="form-control" id="description" th:field="*{description}" required>
                     <div class="invalid-feedback">
                         Please provide a description.
                     </div>
@@ -40,19 +44,18 @@
 
                 <div class="form-group">
                     <label for="price">Price:</label>
-                    <input type="number" class="form-control" id="price" min="0" step="0.01" th:field="*{price}"
-                           required value="${budget.price}">
+                    <input type="number" class="form-control" id="price" min="0" step="0.01" th:field="*{price}" required>
                     <div class="invalid-feedback">
                         Please provide a valid price.
                     </div>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Save</button>
                 <a href="/budget/all" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>
     </div>
 </div>
+
 
 </body>
 </html>

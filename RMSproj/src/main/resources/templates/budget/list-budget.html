@@ -67,18 +67,17 @@
     </div>
 </nav>
 
-
 <!-- Displays the budget table -->
 <div>
     <h1 style="color: forestgreen;" class="text-center">Seasonal Budget</h1>
 
-    <div class="d-flex align-items-center">
-    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#addItem">
+    <div class="d-flex align-items-center justify-content-between">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItem">
         Add Item
     </button>
 
     <form action="/budget/deleteItems" method="post">
-        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Clear Table</button>
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to CLEAR TABLE?')">Clear Table</button>
     </form>
     </div>
 
@@ -86,6 +85,7 @@
         <thead class="table-dark">
         <tr>
             <th>ID</th>
+            <th>Date Purchased</th>
             <th>Item Name</th>
             <th>Description</th>
             <th>Price</th>
@@ -94,6 +94,7 @@
         </thead>
         <tr th:each="budget : ${itemList}">
             <td th:text="${budget.id}"></td>
+            <td th:text="${budget.datePurchased}"></td>
             <td th:text="${budget.itemName}"></td>
             <td th:text="${budget.description}"></td>
             <td th:text="'$' + ${budget.price}"></td>
@@ -101,7 +102,7 @@
                 <div class="d-flex align-items-center">
                 <a th:href="@{/budget/update/id={id}(id=${budget.id})}" class="btn btn-primary me-2">Edit</a>
                 <form th:action="@{/budget/delete/{id}(id=${budget.id})}" method="post">
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure want to DELETE?')">Delete
                     </button>
                 </form>
                 </div>
@@ -121,12 +122,16 @@
             <div class="modal-body">
                 <form action="/budget/addItem" method="post">
                     <div class="mb-3">
+                        <label for="datePurchased" class="form-label">Date Purchased:</label>
+                        <input type="date" class="form-control" id="datePurchased" name="datePurchased" required/>
+                    </div>
+                    <div class="mb-3">
                         <label for="itemName" class="form-label">Item Name:</label>
                         <input type="text" class="form-control" id="itemName" name="itemName" required/>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description:</label>
-                        <input type="text" class="form-control" id="description" name="description" required/>
+                        <input type="text" class="form-control" id="description" name="description"/>
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price:</label>
