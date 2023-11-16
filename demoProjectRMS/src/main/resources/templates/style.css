@@ -1,0 +1,17 @@
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-error {
+    background: rgb(202, 60, 60);
+}
+.small-search{
+    width: 100px;
+}
+.result-box {
+    margin-top: 10px;
+    height: 200px;
+    padding: 10px;
+    border: 5px solid black;
+}
