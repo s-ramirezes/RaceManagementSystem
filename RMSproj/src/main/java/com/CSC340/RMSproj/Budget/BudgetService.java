@@ -24,6 +24,15 @@ public class BudgetService {
     }
 
     /**
+     * adds up the column price in budget table
+     *
+     * @return total price of items
+     */
+    public Double getTotal(){
+        return budgetRepo.itemTotal();
+    }
+
+    /**
      * Add an item to the budget.
      *
      * @param budget

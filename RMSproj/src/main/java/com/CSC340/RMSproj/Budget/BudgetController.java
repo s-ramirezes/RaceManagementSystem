@@ -19,6 +19,7 @@ public class BudgetController {
     public String getAllItems(Model model,
                               @RequestParam(name = "continue", required = false) String cont) {
         model.addAttribute("itemList", budgetService.getAllItems());
+        model.addAttribute("itemsTotal", budgetService.getTotal());
         return "budget/list-budget";
     }
 
