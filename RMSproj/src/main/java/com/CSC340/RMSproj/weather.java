@@ -1,13 +1,16 @@
 package com.CSC340.RMSproj;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@RestController
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class weather {
+    private String currentWeather;
+    private String location;
 
-    @RequestMapping("/hello")
-    public String hello(){
-        return "hello world";
-    }
 }

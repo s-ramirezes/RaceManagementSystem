@@ -30,7 +30,7 @@ public class SecurityConfig {
                         .dispatcherTypeMatchers(DispatcherType.FORWARD,
                                 DispatcherType.ERROR).permitAll()
                         .requestMatchers("/images/**").permitAll()
-                        .requestMatchers("/driver/**").hasAuthority("DRIVER")
+                        .requestMatchers("/Feedback/**").hasAuthority("DRIVER")
                         .requestMatchers("/employee/**").hasAuthority("MANAGER")
                         .requestMatchers("/budget/**").hasAuthority("MANAGER")
                         .anyRequest().authenticated()
