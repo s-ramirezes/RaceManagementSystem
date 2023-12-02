@@ -14,13 +14,13 @@ public class FeedbackController {
     @GetMapping("/all")
     public String getAllFeedback(Model model) {
         model.addAttribute("feedbackList", feedbackService.getAllFeedback());
-        return "viewFeedback";
+        return "Feedback/viewFeedback";
     }
 
     @GetMapping("/submit")
     public String feedbackForm(Model model) {
         model.addAttribute("feedback", new Feedback());
-        return "submitFeedback";
+        return "Feedback/submitFeedback";
     }
 
     @PostMapping("/add")
