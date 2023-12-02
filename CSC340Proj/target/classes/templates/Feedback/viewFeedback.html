@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px; /* Add margin below the table */
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .button-link {
+            display: inline-block; /* Change to inline-block for better spacing */
+            background-color: #008CBA;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px; /* Add some space above the button */
+        }
+        .button-link:hover {
+            background-color: #005f73;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Feedback from Users</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Message</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="feedback : ${feedbackList}">
+            <td th:text="${feedback.id}"></td>
+            <td th:text="${feedback.message}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/feedback/submit" class="button-link">Submit Feedback</a>
+</div>
+</body>
+</html>
