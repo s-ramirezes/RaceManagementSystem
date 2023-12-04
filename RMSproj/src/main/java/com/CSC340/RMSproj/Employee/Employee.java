@@ -11,6 +11,7 @@ import lombok.Setter;
         @UniqueConstraint(columnNames = {"username"})
 })
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Employee{
@@ -19,12 +20,7 @@ public class Employee{
     private Long id;
     private String username;
     private String password;
+    private String firstName;
+    private String lastName;
     private String role;
-
-    public Employee(Long id, String username, String password, String role) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-    }
 }

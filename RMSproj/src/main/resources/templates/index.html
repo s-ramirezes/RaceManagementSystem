@@ -51,13 +51,13 @@
             Driver
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="">Stats</a></li>
+            <li><a class="dropdown-item" href="/driver/stats">Stats</a></li>
             <li><a class="dropdown-item" href="/feedback/all">Feedback</a></li>
           </ul>
         </li>
       </ul>
     </div>
-    <span class="me-2" th:text="${currentUser}" style="color: white;"></span>
+    <span class="me-2" th:text="${#authentication.name}" style="color: white;"></span>
     <form action="/logout" method="post">
       <button class="button-error pure-button">Logout</button>
     </form>

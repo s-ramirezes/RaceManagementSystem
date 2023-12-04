@@ -19,8 +19,7 @@
                     src="/images/RMSLOGO.png"
                     width="30" height="30"/>
             RMS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -29,8 +28,7 @@
                     <a class="nav-link active" aria-current="page" href="/home">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Manager
                     </a>
                     <ul class="dropdown-menu">
@@ -39,8 +37,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Engineer
                     </a>
                     <ul class="dropdown-menu">
@@ -49,17 +46,17 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Driver
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Stats</a></li>
-                        <li><a class="dropdown-item" href="#">Feedback</a></li>
+                        <li><a class="dropdown-item" href="/driver/stats">Stats</a></li>
+                        <li><a class="dropdown-item" href="/feedback/all">Feedback</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
+        <span class="me-2" th:text="${#authentication.name}" style="color: white;"></span>
         <form action="/logout" method="post">
             <button class="button-error pure-button">Logout</button>
         </form>
@@ -98,27 +95,42 @@
     </tr>
 </table>
 </div>
-
 <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="/employee/addEmployee" method="post">
                     <div class="mb-3">
-                        <label for="username" class="form-label">User Name:</label>
+                        <label for="firstName" class="form-label">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" onblur="
+                            if (document.getElementById('username').value == '' && document.getElementById('firstName').value != '' && document.getElementById('lastName').value != '') {
+                                var username = document.getElementById('firstName').value.substr(0, 2) + document.getElementById('lastName').value.substr(0, 3);
+                                username = username.toLowerCase();
+                                var randomWholeNumber = Math.floor(Math.random() * 100);
+                                username += randomWholeNumber;
+                                document.getElementById('username').value = username;
+                            }"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username:</label>
                         <input type="text" class="form-control" id="username" name="username" required/>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password"/>
+                        <input type="password" class="form-control" id="password" name="password" />
                     </div>
                     <div class="mb-3">
                         <label for="role" class="form-label">Role:</label>
-                        <select class="form-control" id="role" name="role" required>
+                        <select class="form-select" id="role" name="role" required>
                             <option value="MANAGER">Manager</option>
                             <option value="ENGINEER">Engineer</option>
                             <option value="DRIVER">Driver</option>

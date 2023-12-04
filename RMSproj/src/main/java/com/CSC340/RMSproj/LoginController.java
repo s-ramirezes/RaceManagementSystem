@@ -26,10 +26,4 @@ public class LoginController {
     public String accessDenied(){
         return "403";
     }
-
-    @GetMapping("/getWeather")
-    public String getWeather(@RequestParam("city") String city, Model model) {
-        model.addAttribute("weather", weatherService.accessWeather(city));
-        return "index";
-    }
 }

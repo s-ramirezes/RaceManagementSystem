@@ -18,14 +18,14 @@ public class StatsController {
     public String viewAllStats(Model model) {
         List<Stats> stats = statsService.getAllStats();
         model.addAttribute("statsList", stats);
-        return "/viewStats";
+        return "/Stats/viewStats";
     }
 
     @GetMapping("/editStats/{id}")
     public String editStats(@PathVariable Long id, Model model) {
         Stats stat = statsService.getStatsById(id);
         model.addAttribute("stat", stat);
-        return "editStats";
+        return "/Stats/editStats";
     }
 
     @PostMapping("/updateStats")
@@ -50,6 +50,6 @@ public class StatsController {
     @GetMapping("/createStats")
     public String createStatsForm(Model model) {
         model.addAttribute("newStats", new Stats());
-        return "createStats";
+        return "/Stats/createStats";
     }
 }
