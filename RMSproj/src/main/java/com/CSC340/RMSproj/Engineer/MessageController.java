@@ -18,13 +18,13 @@ public class MessageController {
         model.addAttribute("message", messageService.getMessage());
         return "engineer/Live_Communication";
     }
-    @PostMapping("/")
+    @PostMapping("/add")
     public String sendMessage(@RequestParam(value = "sentMessage") String sentMessage, Model model)
     {
         System.out.println(sentMessage);
         messageService.deleteAll();
         messageService.sendMessage(new Message(sentMessage));
         model.addAttribute("message", messageService.getMessage());
-        return "redirect:/live_feedback/";
+        return "redirect:/engineer/";
     }
 }

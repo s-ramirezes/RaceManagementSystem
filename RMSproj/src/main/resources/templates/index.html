@@ -66,16 +66,19 @@
 </nav>
 
 <!-- weather form -->
-<h1>Weather info</h1>
+<div class="centered-content">
+  <h1 style="color: forestgreen; display: inline-block;">Weather info</h1>
+  <img src="/images/weatherIcon.png" alt="WeatherIcon" width="40" height="40">
 <form action="/weather/getWeather" method="get">
   <input type="text" name="city" placeholder="Enter City"/>
-  <button type="submit">Get Weather</button>
+  <button type="submit" class="btn btn-primary">Get Weather</button>
 </form>
-<div th:if="${weather}">
+<div th:if="${weather}" class="result">
   <h6>Location: <span th:text="${weather.city}">City</span></h6>
   <p>Temp: <span th:text="${weather.temp}">Weather</span></p>
   <p>Wind: <span th:text="${weather.wind}">Wind Info</span></p>
   <p>Rain Chance: <span th:text="${weather.rainChance}">Rain Chance</span></p>
+</div>
 </div>
 
 <!-- track form -->
