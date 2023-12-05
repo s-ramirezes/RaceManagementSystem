@@ -85,7 +85,15 @@
         <td th:text="${employee.role}"></td>
         <td>
             <div class="d-flex align-items-center">
-                <a th:href="@{/employee/update/id={id}(id=${employee.id})}" class="btn btn-primary me-2">Edit</a>
+                <div class="dropdown me-2">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Edit
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" th:href="@{/employee/update/id={id}(id=${employee.id})}">Info</a>
+                        <a class="dropdown-item" th:href="@{/employee/updatePassword/id={id}(id=${employee.id})}">password</a>
+                    </div>
+                </div>
                 <form th:action="@{/employee/delete/{id}(id=${employee.id})}" method="post">
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure want to DELETE?')">Delete
                     </button>

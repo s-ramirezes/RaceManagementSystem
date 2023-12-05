@@ -41,4 +41,15 @@ public class EmployeeController {
         employeeService.updateEmployee(employee);
         return "redirect:/employee/all";
     }
+    @GetMapping("/updatePassword/id={id}")
+    public String updateEmployeePassword(@PathVariable long id, Model model) {
+        Employee employee = employeeService.getEmployeeById(id);
+        model.addAttribute("employeePassword", employee);
+        return "employee/update-password";
+    }
+    @PostMapping("/updatePassword")
+    public String updatePassword(@ModelAttribute Employee employee) {
+        employeeService.updatePassword(employee);
+        return "redirect:/employee/all";
+    }
 }
