@@ -8,48 +8,48 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/driver")
+@RequestMapping("/stats")
 public class StatsController {
 
     @Autowired
     private StatsService statsService;
 
-    @GetMapping("/stats")
+    @GetMapping("/all")
     public String viewAllStats(Model model) {
         List<Stats> stats = statsService.getAllStats();
         model.addAttribute("statsList", stats);
-        return "/Stats/viewStats";
+        return "Stats/viewStats";
     }
 
     @GetMapping("/editStats/{id}")
     public String editStats(@PathVariable Long id, Model model) {
         Stats stat = statsService.getStatsById(id);
         model.addAttribute("stat", stat);
-        return "/Stats/editStats";
+        return "Stats/editStats";
     }
 
     @PostMapping("/updateStats")
     public String updateStats(@ModelAttribute Stats updatedStats) {
         statsService.updateStats(updatedStats);
-        return "redirect:/driver/stats";
+        return "redirect:/stats/all";
     }
 
     @DeleteMapping("/delete/{id}")
     public String deleteStats(@PathVariable Long id) {
         statsService.deleteStats(id);
-        return "redirect:/driver/stats";
+        return "redirect:/stats/all";
     }
 
     @PostMapping("/createStats")
     public String createStats(@ModelAttribute Stats newStats) {
         statsService.createStats(newStats);
-        return "redirect:/driver/stats";
+        return "redirect:/stats/all";
 
 
     }
     @GetMapping("/createStats")
     public String createStatsForm(Model model) {
         model.addAttribute("newStats", new Stats());
-        return "/Stats/createStats";
+        return "Stats/createStats";
     }
 }

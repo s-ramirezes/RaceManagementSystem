@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+</html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -10,12 +10,6 @@
 <head>
   <title>View Feedback</title>
   <style>
-    .div-changer {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-    }
     .container {
       background-color: white;
       padding: 20px;
@@ -28,7 +22,7 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
-      margin-bottom: 20px; /* Add margin below the table */
+      margin-bottom: 20px;
     }
     th, td {
       text-align: left;
@@ -42,8 +36,7 @@
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
-    .button-link {
-      display: inline-block; /* Change to inline-block for better spacing */
+    .button, button, input[type="submit"] {
       background-color: #008CBA;
       color: white;
       padding: 10px 20px;
@@ -52,10 +45,13 @@
       cursor: pointer;
       text-decoration: none;
       font-size: 16px;
-      margin-top: 10px; /* Add some space above the button */
+      transition: background-color 0.3s;
     }
-    .button-link:hover {
+    .button:hover, button:hover, input[type="submit"]:hover {
       background-color: #005f73;
+    }
+    .edit-btn {
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -90,8 +86,8 @@
             Engineer
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Race Strategy</a></li>
-            <li><a class="dropdown-item" href="#">Live Communication</a></li>
+            <li><a class="dropdown-item" href="/engineer/strategy">Race Strategy</a></li>
+            <li><a class="dropdown-item" href="/engineer/">Live Communication</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -99,7 +95,7 @@
             Driver
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/driver/stats">Stats</a></li>
+            <li><a class="dropdown-item" href="/stats/all">Stats</a></li>
             <li><a class="dropdown-item" href="/feedback/all">Feedback</a></li>
           </ul>
         </li>
@@ -112,7 +108,7 @@
   </div>
 </nav>
 <div class="container">
-  <h1>Feedback from Users</h1>
+  <h1>Feedback from Drivers</h1>
   <table>
     <thead>
     <tr>
@@ -127,7 +123,8 @@
     </tr>
     </tbody>
   </table>
-  <a href="/feedback/submit" class="button-link">Submit Feedback</a>
+  <a sec:authorize="hasRole('DRIVER')" href="/feedback/submit" class="button">Submit Feedback</a>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

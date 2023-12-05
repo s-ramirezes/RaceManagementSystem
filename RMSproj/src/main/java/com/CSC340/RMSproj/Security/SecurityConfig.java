@@ -2,13 +2,12 @@ package com.CSC340.RMSproj.Security;
 
 import com.CSC340.RMSproj.Employee.CustomEmployeeDetailsService;
 import jakarta.servlet.DispatcherType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,6 +19,7 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 @EnableWebSecurity
 public class SecurityConfig{
 
+    @Autowired
     private CustomEmployeeDetailsService customEmployeeDetailsService;
 
     @Bean
@@ -31,10 +31,11 @@ public class SecurityConfig{
                 .authorizeHttpRequests((authorize) -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
                         .requestMatchers("/images/**").permitAll()
-                        .requestMatchers("/Stats/**").hasAuthority("DRIVER")
-                        .requestMatchers("/Feedback/**").hasAuthority("DRIVER")
-                        .requestMatchers("/employee/**").hasAuthority("MANAGER")
-                        .requestMatchers("/budget/**").hasAuthority("MANAGER")
+                        .requestMatchers("/stats/**").permitAll()
+                        .requestMatchers("/feedback/**").permitAll()
+                        .requestMatchers("/engineer/**").hasRole("ENGINEER")
+                        .requestMatchers("/employee/**").hasRole("MANAGER")
+                        .requestMatchers("/budget/**").hasRole("MANAGER")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

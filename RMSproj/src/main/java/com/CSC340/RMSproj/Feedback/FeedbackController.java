@@ -26,6 +26,6 @@ public class FeedbackController {
     @PostMapping("/add")
     public String submitFeedback(@ModelAttribute Feedback feedback) {
         feedbackService.saveFeedback(feedback);
-        return "redirect:/feedback";
+        return "redirect:/feedback/all";
     }
 }

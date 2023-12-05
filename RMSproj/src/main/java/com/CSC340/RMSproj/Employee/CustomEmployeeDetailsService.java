@@ -19,8 +19,9 @@ public class CustomEmployeeDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Employee employee = employeeRepo.findByUsername(username).orElseThrow(()
                 -> new UsernameNotFoundException(username + "not found"));
+        String roleWithPrefix = "ROLE_" + employee.getRole();
         ArrayList<SimpleGrantedAuthority> authList = new ArrayList<>();
-        authList.add(new SimpleGrantedAuthority(employee.getRole()));
+        authList.add(new SimpleGrantedAuthority(roleWithPrefix));
         return new org.springframework.security.core.userdetails.User(
                 employee.getUsername(), employee.getPassword(), authList);
     }
