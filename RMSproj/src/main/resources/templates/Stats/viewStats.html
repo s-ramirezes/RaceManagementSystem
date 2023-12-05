@@ -112,6 +112,9 @@
     </form>
   </div>
 </nav>
+<div th:if="${error}" class="alert alert-danger" role="alert">
+  <span th:text="${error}"></span>
+</div>
 
 <div class="container">
   <h1>Stats</h1>
@@ -119,7 +122,7 @@
     <thead>
     <tr>
       <th>ID</th>
-      <th>Driver Name</th>
+      <th>User Name</th>
       <th>Total Races</th>
       <th>Wins</th>
       <th>Win Percentage</th>
@@ -135,7 +138,11 @@
       <td th:text="${stat.winPercentage} + '%'"></td>
       <td>
         <a sec:authorize="hasRole('DRIVER')" th:href="@{/stats/editStats/{id}(id=${stat.id})}" class="button">Edit</a>
-        <form sec:authorize="!hasRole('ENGINEER')" th:action="@{/stats/delete/{id}(id=${stat.id})}" method="post" style="display: inline;">
+        <form sec:authorize="hasRole('DRIVER')" th:action="@{/stats/delete/{id}(id=${stat.id})}" method="post" style="display: inline;">
+          <input type="hidden" name="_method" value="delete" />
+          <input type="submit" value="Delete" onclick="return confirm('Are you sure?')" class="btn btn-primary" />
+        </form>
+        <form sec:authorize="hasRole('MANAGER')" th:action="@{/stats/deleteManager/{id}(id=${stat.id})}" method="post" style="display: inline;">
           <input type="hidden" name="_method" value="delete" />
           <input type="submit" value="Delete" onclick="return confirm('Are you sure?')" class="btn btn-primary" />
         </form>

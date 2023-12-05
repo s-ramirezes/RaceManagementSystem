@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class weatherService {
     public weather accessWeather(String city) {
         try {
-            String url = "http://api.weatherstack.com/current?access_key=c8dd3abe5be76d394f9c512b168e4385" + "&query=" + city;
+            String url = "http://api.weatherstack.com/current?access_key=c8dd3abe5be76d394f9c512b168e4385&query=" + city + "&units=f";
 
             RestTemplate restTemplate = new RestTemplate();
             ObjectMapper mapper = new ObjectMapper();
@@ -19,10 +19,11 @@ public class weatherService {
             JsonNode root = mapper.readTree(jsonResponse);
 
             JsonNode currentWeatherNode = root.path("current");
+            JsonNode requestNode = root.path("request");
 
             weather currentWeather = new weather();
-            currentWeather.setCity(city);
-            currentWeather.setTemp(currentWeatherNode.path("temperature").asText() + "°C");
+            currentWeather.setCity(requestNode.path("query").asText());
+            currentWeather.setTemp(currentWeatherNode.path("temperature").asText() + "°F");
             currentWeather.setCurrentWeather(currentWeatherNode.path("weather_descriptions").asText());
             currentWeather.setWind(currentWeatherNode.path("wind_speed").asText() + " km/h");
             currentWeather.setRainChance(currentWeatherNode.path("precip").asText() + "%");

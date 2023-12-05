@@ -14,7 +14,7 @@ public class weatherController {
     private weatherService weatherService;
     @GetMapping("/getWeather")
     public String getWeather(@RequestParam(value = "city", required = false) String city, Model model){
-        if (city != null && !city.isEmpty()) {
+        if (city != null) {
             weather weatherData = weatherService.accessWeather(city);
             model.addAttribute("weather", weatherData);
         }
